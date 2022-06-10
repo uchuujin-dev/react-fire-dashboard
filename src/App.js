@@ -1,10 +1,22 @@
-import "./styles.css";
+import Home from "./pages/home/Home";
+import SimpleCalc from "./pages/calculators/SimpleCalc";
+import Login from "./pages/login/Login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-export default function App() {
+function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="simplecalc" element={<SimpleCalc />} />
+            <Route path="login" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
+
+export default App;
