@@ -1,45 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "./widget.scss";
-import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
-import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
-import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
 
-const Widget = ({ type }) => {
-  let data;
+const Widget = ({ widget }) => {
+  const [toggleFlip, setToggleFlip] = useState(false);
 
-  switch (type) {
-    case "fire":
-      data = {
-        title: "YEARS TO FIRE",
-        link: "Calculate",
-        icon: <LocalFireDepartmentRoundedIcon className="icon" />
-      };
-      break;
-    case "pots":
-      data = {
-        title: "POTS",
-        link: "Edit",
-        icon: <AttachMoneyRoundedIcon className="icon" />
-      };
-      break;
-    case "worth":
-      data = {
-        title: "NET WORTH",
-        link: "Edit",
-        icon: <AutoGraphRoundedIcon className="icon" />
-      };
-      break;
-    default:
-      break;
+  function isFlipped() {
+    const currentState = toggleFlip;
+    setToggleFlip(!currentState);
   }
   return (
-    <div className="widget">
-      <div className="left">
-        <span className="title">{data.title}</span>
-        <span className="counter">Some prop text</span>
-        <span className="link">{data.link}</span>
+    <div
+      className={toggleFlip ? "widget is_flipped" : "widget"}
+      onClick={() => isFlipped()}
+    >
+      <div className="widget__front">
+        <div className="left">
+          <span className="title">{widget.title}</span>
+          {widget.text.map((text) => {
+            return (
+              <div>
+                <span className="counter">{text.title}</span> &nbsp;
+                <span className="counter">{text.content}</span>
+              </div>
+            );
+          })}
+
+          <span className="link">{widget.link}</span>
+        </div>
+        <div className="right">{widget.icon}</div>
       </div>
-      <div className="right">{data.icon}</div>
+
+      <div className="widget__back">
+        <div className="left">
+          <span className="title">{widget.title} BACK</span>
+          {widget.text.map((text) => {
+            return (
+              <div>
+                <span className="counter">{text.title}</span> &nbsp;
+                <span className="counter">{text.content}</span>
+              </div>
+            );
+          })}
+
+          <span className="link">{widget.link}</span>
+        </div>
+        <div className="right">{widget.icon}</div>
+      </div>
     </div>
   );
 };
