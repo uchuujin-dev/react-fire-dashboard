@@ -11,3 +11,6 @@ root.render(
     <App />
   </StrictMode>
 );
+
+// todo
+// make states for the widgets and make them editable
