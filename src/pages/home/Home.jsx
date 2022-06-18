@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Widget from "../../components/widget/Widget";
+import FireGraph from "../../components/fireGraph/FireGraph";
+import MarketGraph from "../../components/marketGraph/MarketGraph";
 import "./home.scss";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
@@ -106,7 +108,10 @@ const Home = () => {
             return <Widget widget={widget} saveWidgetText={saveWidgetText} />;
           })}
         </div>
-        <div className="charts"></div>
+        <div className="charts">
+          <FireGraph />
+          <MarketGraph />
+        </div>
       </div>
     </div>
   );

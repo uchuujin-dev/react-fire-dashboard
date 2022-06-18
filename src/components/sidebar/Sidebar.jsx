@@ -5,7 +5,7 @@ import CalculateRoundedIcon from "@mui/icons-material/CalculateRounded";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
 import SettingsEthernetRoundedIcon from "@mui/icons-material/SettingsEthernetRounded";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import SettingsApplicationsRoundedIcon from "@mui/icons-material/SettingsApplicationsRounded";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 
 const Sidebar = () => {
   return (
@@ -36,7 +36,7 @@ const Sidebar = () => {
             <span>Profile</span>
           </li>
           <li>
-            <SettingsApplicationsRoundedIcon className="icon" />
+            <SettingsRoundedIcon className="icon" />
             <span>Settings</span>
           </li>
         </ul>
