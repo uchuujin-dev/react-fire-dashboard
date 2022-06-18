@@ -15,7 +15,15 @@ const Home = () => {
       title: "YEARS TO FIRE",
       text: [{ id: "fire", title: "", content: "?" }],
       link: "Calculate",
-      icon: <LocalFireDepartmentRoundedIcon className="icon" />
+      icon: (
+        <LocalFireDepartmentRoundedIcon
+          className="icon"
+          style={{
+            color: "crimson",
+            backgroundColor: "rgba(255, 0, 0, 0.2)"
+          }}
+        />
+      )
     },
     {
       id: "pots",
@@ -27,7 +35,12 @@ const Home = () => {
       ],
 
       link: "Click to edit",
-      icon: <AttachMoneyRoundedIcon className="icon" />
+      icon: (
+        <AttachMoneyRoundedIcon
+          className="icon"
+          style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
+        />
+      )
     },
     {
       id: "worth",
@@ -39,7 +52,15 @@ const Home = () => {
       ],
       total: "?",
       link: "Click to edit",
-      icon: <AutoGraphRoundedIcon className="icon" />
+      icon: (
+        <AutoGraphRoundedIcon
+          className="icon"
+          style={{
+            backgroundColor: "rgba(128, 0, 128, 0.2)",
+            color: "purple"
+          }}
+        />
+      )
     }
   ]);
   function sortByPosition(a, b) {

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./widget.scss";
 import { InputGroup, FormControl } from "react-bootstrap";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Widget = ({ widget, saveWidgetText }) => {
   const [toggleFlip, setToggleFlip] = useState(false);
   const [input, setInput] = useState({});
+  const [diff, setDiff] = useState();
 
   function handleInput(event) {
     const { name, value } = event.target;
@@ -15,12 +17,19 @@ const Widget = ({ widget, saveWidgetText }) => {
   }
 
   function flipWidget() {
-    const currentState = toggleFlip;
-    setToggleFlip(!currentState);
+    if (widget.id !== "fire") {
+      const currentState = toggleFlip;
+      setToggleFlip(!currentState);
+    }
   }
   return (
     <div className={toggleFlip ? "widget is_flipped" : "widget"}>
-      <div className="widget__front" onClick={() => setToggleFlip(true)}>
+      <div
+        className="widget__front"
+        onClick={() => {
+          if (widget.id !== "fire") setToggleFlip(true);
+        }}
+      >
         <div className="left">
           <span className="title">{widget.title}</span>
           {widget.text.map((text) => {
@@ -36,12 +45,24 @@ const Widget = ({ widget, saveWidgetText }) => {
             {widget.link}
           </span>
         </div>
-        <div className="right">{widget.icon}</div>
+        <div className="right">
+          {diff ? (
+            <div className="percentage positive">
+              <KeyboardArrowUpIcon /> {diff}%
+            </div>
+          ) : (
+            <div className="percentage positive">
+              <KeyboardArrowUpIcon /> ?
+            </div>
+          )}
+
+          {widget.icon}
+        </div>
       </div>
 
-      <div className="widget__back">
+      <div className="widget__back" onClick={() => flipWidget()}>
         <div className="left">
-          <span className="title">{widget.title} BACK</span>
+          <span className="title">{widget.title}</span>
           {widget.text.map((text) => {
             return (
               <div>
@@ -52,10 +73,12 @@ const Widget = ({ widget, saveWidgetText }) => {
                 <InputGroup className="mb-3">
                   <InputGroup.Text>£ </InputGroup.Text>
                   <FormControl
+                    className="widget__input"
                     name={text.id}
                     type="number"
                     placeholder={text.content}
                     onChange={handleInput}
+                    onClick={(e) => e.stopPropagation()}
                     aria-label="Pound amount"
                   />
                 </InputGroup>
@@ -65,15 +88,21 @@ const Widget = ({ widget, saveWidgetText }) => {
 
           <span
             className="link"
-            onClick={() => {
+            onClick={(e) => {
               saveWidgetText(widget.id, input);
               flipWidget();
+              e.stopPropagation();
             }}
           >
             SAVE
           </span>
         </div>
-        <div className="right">{widget.icon}</div>
+        <div className="right">
+          <div className="percentage positive">
+            <KeyboardArrowUpIcon />?
+          </div>
+          {widget.icon}
+        </div>
       </div>
     </div>
   );

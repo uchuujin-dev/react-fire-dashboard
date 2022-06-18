@@ -24,6 +24,10 @@
   .widget__back {
     transform: rotateY(180deg);
     position: absolute;
+
+    .widget__input{
+      width: 70%;
+    }
   }
 
   
@@ -45,6 +49,19 @@
     justify-content: space-between;
     color: #2f2f30;
 
+    .percentage {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+
+      &.positive {
+        color: green;
+      }
+      &.negative {
+        color: red;
+      }
+    }
+
     .title{
       padding-top: 1px;
       font-weight: bold;
@@ -62,14 +79,13 @@
       border-bottom: 1px solid #7d7e80;
     }
 
-    .icon{
-      display: flex;
+    .icon {
       font-size: 18px;
       padding: 5px;
       border-radius: 5px;
       align-self: flex-end;
-      padding-top: 0;
     }
+
   }
   }
 
