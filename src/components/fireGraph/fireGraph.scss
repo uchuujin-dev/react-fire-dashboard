@@ -1,7 +1,35 @@
+
 .fireGraph{
   flex: 4;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
   box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
   border-radius: 10px;
-  padding: 10px;
+  padding: 0;
+  min-height: 50vh;
+  max-height: 80vh;
+  min-width: 170px;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0; 
+  color: #7d7e80;
+
+
+    .title{
+      padding: 0 0.3rem;
+      padding-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .graph {
+
+      .grid{
+        stroke: #c6c8cc;
+      }
+
+    }
+
+  
 }

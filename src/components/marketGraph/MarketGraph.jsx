@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./marketGraph.scss";
+import CustomTable from "../table/CustomTable";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { Tab } from "@mui/material";
 
 const MarketGraph = () => {
   const [toggleFlip, setToggleFlip] = useState(false);
@@ -13,23 +15,21 @@ const MarketGraph = () => {
   }
 
   return (
-    <div className={toggleFlip ? "marketGraph is_flipped" : "marketGraph"}>
-      <div className="market__front" onClick={() => flipCard()}>
-        <div className="top">
-          <h1 className="title">Market data</h1>
-          <ManageSearchRoundedIcon />
-        </div>
-        <div className="bottom">
-          <div className="market__table">
-            <CircularProgressbar value={70} text="70%" strokeWidth={5} />
-          </div>
-          <p className="description">
-            All data are fetched from external API, may not be accurate.
-          </p>
+    <div className="marketGraph">
+      <div className="top">
+        <h1 className="title">Market data</h1>
+        <div className="search">
+          <input type="text" placeholder="Search..." />
+          <button className="searchBtn">
+            <ManageSearchRoundedIcon />
+          </button>
         </div>
       </div>
-      <div className="market__back" onClick={() => flipCard()}>
-        <h1>back</h1>
+      <div className="bottom">
+        <div className="market__table">
+          <CustomTable />
+        </div>
+        <p className="description">Sample data, may not be accurate.</p>
       </div>
     </div>
   );

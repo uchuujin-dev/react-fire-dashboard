@@ -110,6 +110,9 @@ const Home = () => {
         </div>
         <div className="charts">
           <FireGraph />
+        </div>
+
+        <div className="markets">
           <MarketGraph />
         </div>
       </div>
