@@ -16,30 +16,30 @@ const Calculator = () => {
           </div>
           <div className="form">
             <article className="inputGroup">
-              <label htmlFor="">Annual expenses</label>
-              <input type="text" />
+              <label htmlFor="annualExp">Annual expenses</label>
+              <input type="number" name="annualExp" />
             </article>
             <article className="inputGroup">
-              <label htmlFor="">Withdrawal rate</label>
-              <input type="text" />
+              <label htmlFor="withdrawalRate">Withdrawal rate</label>
+              <input type="number" name="withdrawalRate" />
             </article>
             <article className="inputGroup">
-              <label htmlFor="">Initial balance</label>
-              <input type="text" />
+              <label htmlFor="age">Current age</label>
+              <input type="number" name="age" />
             </article>
             <article className="inputGroup">
-              <label htmlFor="">Annual growth</label>
-              <input type="text" />
+              <label htmlFor="initial">Initial balance</label>
+              <input type="number" name="initial" />
             </article>
             <article className="inputGroup">
-              <label htmlFor="">Years</label>
-              <input type="text" />
+              <label htmlFor="growth">Annual growth</label>
+              <input type="number" name="growth" />
             </article>
             <article className="inputGroup">
-              <label htmlFor="">
+              <label htmlFor="deposit">
                 Deposit monthly <span className="optional">(optional)</span>
               </label>
-              <input type="text" />
+              <input type="number" name="deposit" />
             </article>
 
             <button className="calcBtn">
