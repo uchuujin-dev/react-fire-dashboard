@@ -3,9 +3,13 @@
   max-height: 80vh;
 
   .deleteRowBtn{
-    cursor: pointer;
-    color: red;
-    opacity: 0.5;
-    vertical-align: middle;
-  }
+    background-color: transparent;
+    border: none;
+    .deleteRowBtnIcon{
+      cursor: pointer;
+      color: red;
+      opacity: 0.5;
+      vertical-align: middle;
+    }
+}
 }

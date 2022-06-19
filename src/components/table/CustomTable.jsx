@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./customTable.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,18 +8,25 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import RemoveCircleOutlineRoundedIcon from "@mui/icons-material/RemoveCircleOutlineRounded";
+import uuid from "react-uuid";
 
 const CustomTable = () => {
-  function createData(name, last, change, percentageChange) {
-    return { name, last, change, percentageChange };
+  function createData(id, name, last, change, percentageChange) {
+    return { id, name, last, change, percentageChange };
   }
 
   const rows = [
-    createData("S&P 500", 3674.84, 8.07, 24, 0.22),
-    createData("UK: FTSE 100", 7016.25, -28.73, -0.41),
-    createData("Russell 2000", 1665.69, 15.86, 0.96),
-    createData("Japan: Nikkei 225", 25963.0, -468.2, -1.77)
+    createData(uuid(), "S&P 500", 3674.84, 8.07, 24, 0.22),
+    createData(uuid(), "UK: FTSE 100", 7016.25, -28.73, -0.41),
+    createData(uuid(), "Russell 2000", 1665.69, 15.86, 0.96),
+    createData(uuid(), "Japan: Nikkei 225", 25963.0, -468.2, -1.77)
   ];
+
+  const [data, setData] = useState(rows);
+
+  function handleDelete(id) {
+    setData(data.filter((item) => item.id !== id));
+  }
 
   return (
     <TableContainer component={Paper} className="table">
@@ -42,7 +49,7 @@ const CustomTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -61,7 +68,12 @@ const CustomTable = () => {
               </TableCell>
 
               <TableCell className="tableCell" align="right">
-                <RemoveCircleOutlineRoundedIcon className="deleteRowBtn" />
+                <button
+                  className="deleteRowBtn"
+                  onClick={() => handleDelete(row.id)}
+                >
+                  <RemoveCircleOutlineRoundedIcon className="deleteRowBtnIcon" />
+                </button>
               </TableCell>
             </TableRow>
           ))}
