@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./calculator.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import CalculateRoundedIcon from "@mui/icons-material/CalculateRounded";
 
 const Calculator = () => {
+  const [formData, setFormData] = useState({
+    annualExp: 0,
+    withdrawalRate: 0,
+    age: 0,
+    initial: 0,
+    growth: 0,
+    deposit: 0
+  });
   return (
     <div className="calculator">
       <Sidebar />

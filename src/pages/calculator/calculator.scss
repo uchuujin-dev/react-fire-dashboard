@@ -14,6 +14,7 @@
       box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
       border-radius: 10px;  
       flex-direction: column;
+      max-width: 500px;
 
 
       .header{
@@ -29,7 +30,8 @@
 
         }
       .form{
-          margin:20px;
+        
+          margin:20xpx;
           color: var(--light-text-colour-1);
         .inputGroup{
           display: flex;
