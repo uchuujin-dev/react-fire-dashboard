@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./widget.scss";
 import { InputGroup, FormControl } from "react-bootstrap";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
+import { Link, useNavigate } from "react-router-dom";
 const Widget = ({ widget, saveWidgetText }) => {
   const [toggleFlip, setToggleFlip] = useState(false);
   const [input, setInput] = useState({});
@@ -22,12 +22,20 @@ const Widget = ({ widget, saveWidgetText }) => {
       setToggleFlip(!currentState);
     }
   }
+  let navigate = useNavigate();
+  const routeChange = (path) => {
+    navigate(path);
+  };
   return (
     <div className={toggleFlip ? "widget is_flipped" : "widget"}>
       <div
         className="widget__front"
         onClick={() => {
-          if (widget.id !== "fire") setToggleFlip(true);
+          if (widget.id !== "fire") {
+            setToggleFlip(true);
+          } else {
+            routeChange("/calculator");
+          }
         }}
       >
         <div className="left">
@@ -41,9 +49,20 @@ const Widget = ({ widget, saveWidgetText }) => {
             );
           })}
 
-          <span className="link" onClick={() => flipWidget()}>
-            {widget.link}
-          </span>
+          {widget.id !== "fire" ? (
+            <span
+              className="link"
+              onClick={() => {
+                flipWidget();
+              }}
+            >
+              {widget.link}
+            </span>
+          ) : (
+            <Link to="/calculator" style={{ textDecoration: "none" }}>
+              <span className="link">{widget.link}</span>
+            </Link>
+          )}
         </div>
         <div className="right">
           {diff ? (
