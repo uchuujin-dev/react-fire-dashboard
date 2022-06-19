@@ -5,6 +5,10 @@
   .tableCell{
     color: var(--light-text-colour-1);
   }
+  .cellTitle{
+    font-weight: bold;
+    color: var(--light-text-colour-2);
+  }
 
   .deleteRowBtn{
     background-color: transparent;

@@ -33,17 +33,17 @@ const CustomTable = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Name</TableCell>
-            <TableCell className="tableCell" align="right">
-              Last
+            <TableCell className="tableCell cellTitle">NAME</TableCell>
+            <TableCell className="tableCell cellTitle" align="right">
+              LAST
             </TableCell>
-            <TableCell className="tableCell" align="right">
-              Change
+            <TableCell className="tableCell cellTitle" align="right">
+              CHANGE
             </TableCell>
-            <TableCell className="tableCell" align="right">
-              % change
+            <TableCell className="tableCell cellTitle" align="right">
+              % CHANGE
             </TableCell>
-            <TableCell className="tableCell" align="right">
+            <TableCell className="tableCell cellTitle" align="right">
               {/* blank for deleting row */}
             </TableCell>
           </TableRow>
