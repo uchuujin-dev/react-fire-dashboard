@@ -1,8 +1,8 @@
 .sidebar {
   flex: 1;
-  border-right: 0.5px solid #b0a79b;
+  border-right: 0.5px solid var(--light-text-colour-2);
   min-height: 100vh;
-  background-color: #fffcf8;
+  background-color: var(--light-main-bg-colour-2);
   display: flex;
   flex-direction: column;
 
@@ -15,12 +15,13 @@
     .logo{
       font-size: 20px;
       font-weight: bold;
-      color: #7d7e80;
+      color: var(--light-text-colour-2);
     }
   }
   hr{
     height: 0;
-    border: 0.5px solid #b0a79b;
+    border: none;
+    // border: 0.5px solid var(--light-hover-bg-colour);
   }
   .centre{
     padding-left: 10px;
@@ -34,7 +35,7 @@
       .title {
         font-size: 10px;
         font-weight: bold;
-        color: #999;
+        color: var(--light-text-colour-1);
         margin-top: 15px;
         margin-bottom: 5px;
       }
@@ -43,18 +44,19 @@
         display: flex;
         align-items:center;
         padding: 5px;
+        padding-right: 10px;
         cursor: pointer;
-        color: #7d7e80;
+        color: var(--light-text-colour-2);
         
         &:hover{
-          background-color: #b0a79b;
-          color: #fffcf8;
+          background-color: var(--light-hover-bg-colour);
+          color: var(--light-hover-text-colour);
         }
 
         .icon{
           font-size: 18px;
-          color: #7d7e80;
-
+          color: var( --light-text-colour-2);
+          padding-right: 5px;
         }
       }
     }
@@ -64,8 +66,16 @@
   .bottom{
     padding-left: 10px;
 
-    margin-top: auto;
+    margin-top: 5px;
     padding-bottom: 10px;
+    
+    .title {
+      font-size: 10px;
+      font-weight: bold;
+      color: var(--light-text-colour-1);
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
 
     .colourMode{
       display: flex;
@@ -75,16 +85,16 @@
         width: 20px;
         height: 20px;
         border-radius: 5px;
-        border: 1px solid #b0a79b;
+        border: 1px solid var(--light-hover-bg-colour);
         cursor: pointer;
         margin: 5px;
   
         &:nth-child(1){
-          background-color: #2e3642;
+          background-color: var(--light-text-colour-1);
           
         }
         &:nth-child(2){
-          background-color: #f0e4d3;
+          background-color: var(--light-main-bg-colour-1);
         }
       }
     }
@@ -100,17 +110,17 @@
         align-items:center;
         padding: 5px;
         cursor: pointer;
-        color: #7d7e80;
+        color: var(--light-text-colour-2);
 
         
         &:hover{
-          background-color: #b0a79b;
-          color: #fffcf8;
+          background-color: var(--light-hover-bg-colour);
+          color: var(--light-hover-text-colour);
         }
 
         .icon{
           font-size: 18px;
-          color: #7d7e80;
+          color: var(--light-text-colour-2);
         }
       }
     }

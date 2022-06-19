@@ -60,6 +60,7 @@ const Sidebar = () => {
       </div>
 
       <div className="bottom">
+        <p className="title">UTILITY</p>
         <div className="colourMode">
           <div
             className="colourOption"

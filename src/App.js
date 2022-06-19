@@ -6,6 +6,7 @@ import Profile from "./pages/profile/Profile";
 import Settings from "./pages/settings/Settings";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./style/dark.scss";
+import "./themes/variables.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 

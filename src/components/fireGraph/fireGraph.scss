@@ -4,19 +4,18 @@
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
   box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
   border-radius: 10px;
-  padding: 0;
+  padding: 10px;
   min-height: 50vh;
   max-height: 80vh;
   min-width: 170px;
   height: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0; 
-  color: #7d7e80;
+  color: var(--light-text-colour-2);
 
 
     .title{
-      padding: 0 0.3rem;
+      padding: 0 0.5rem;
       padding-top: 10px;
       font-size: 14px;
       font-weight: 500;
@@ -24,10 +23,11 @@
     }
 
     .graph {
-
+      margin-left: 10px;
       .grid{
-        stroke: #c6c8cc;
+        stroke: var(--light-main-bg-colour-1);
       }
+
 
     }
 

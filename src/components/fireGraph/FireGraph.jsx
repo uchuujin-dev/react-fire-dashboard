@@ -10,8 +10,11 @@ import {
   Tooltip,
   ResponsiveContainer
 } from "recharts";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
 
 const FireGraph = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const data = [
     {
       name: 30,
@@ -70,14 +73,14 @@ const FireGraph = () => {
             dataKey="name"
             className="axis"
             tick={{ fontSize: 14 }}
-            stroke="#7d7e80"
+            stroke={darkMode ? "#e3e4e6" : "#2e3642"}
           />
           <YAxis
             width={40}
             className="axis"
             tick={{ fontSize: 14 }}
             tickFormatter={abbreviate}
-            stroke="#7d7e80"
+            stroke={darkMode ? "#e3e4e6" : "#2e3642"}
           />
           <Tooltip
             formatter={(value) => new Intl.NumberFormat("en").format(value)}

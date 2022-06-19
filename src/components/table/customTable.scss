@@ -2,6 +2,10 @@
   width: 100%;
   max-height: 80vh;
 
+  .tableCell{
+    color: var(--light-text-colour-1);
+  }
+
   .deleteRowBtn{
     background-color: transparent;
     border: none;
