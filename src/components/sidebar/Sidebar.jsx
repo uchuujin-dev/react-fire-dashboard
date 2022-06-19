@@ -7,8 +7,12 @@ import SettingsEthernetRoundedIcon from "@mui/icons-material/SettingsEthernetRou
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
 
 const Sidebar = () => {
+  const { dispatch } = useContext(DarkModeContext);
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -57,8 +61,14 @@ const Sidebar = () => {
 
       <div className="bottom">
         <div className="colourMode">
-          <div className="colourOption"></div>
-          <div className="colourOption"></div>
+          <div
+            className="colourOption"
+            onClick={() => dispatch({ type: "DARK" })}
+          ></div>
+          <div
+            className="colourOption"
+            onClick={() => dispatch({ type: "LIGHT" })}
+          ></div>
         </div>
         <div className="logout">
           <ul>

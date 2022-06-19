@@ -1,0 +1,23 @@
+.app.dark{
+background-color: #2e3642;
+color: red ;
+
+.tableCell{
+  background-color:#2e3642;
+  color: #e3e4e6;
+}
+
+.navbar{
+  border-color: #434f60;
+}
+.sidebar{
+  background-color:#2e3642;
+  color: #e3e4e6;
+  border-color: #434f60;
+
+  .hr{
+    border: 0.5px solid #434f60;
+    border-color: #434f60;
+  }
+}
+}
