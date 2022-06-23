@@ -1,19 +1,20 @@
 :root {
-  --light-text-colour-1: #2e3642;
-  --light-text-colour-2: #7d7e80;
-  --light-main-bg-colour-1: #f0e4d3;
-  --light-main-bg-colour-2: #eee;
-  --light-hover-bg-colour: #7d7e80;
-  --light-hover-text-colour: #fffcf8;
+  --light-text-colour-1: #1b2224;
+  --light-text-colour-2: #4b5c61;
+  --light-main-bg-colour-1: #f2f8f4;
+  --light-main-bg-colour-2: rgb(212, 235, 221);
+  --light-hover-bg-colour: #3d5257;
+  --light-hover-text-colour: rgb(190, 231, 207);
   --light-webkit-box-shadow-colour: rgba(0,0,0,0.47);
   --light-box-shadow-colour: rgba(201,201,201,0.47);
 
-  --dark-text-colour-1: #e3e4e6;
-  --dark-text-colour-2: #f0e4d3;
-  --dark-main-bg-colour-1: #2e3642;
-  --dark-main-bg-colour-2: #434f60;
-  --dark-hover-bg-colour: #91a9cf;
-  --dark-hover-text-colour: #253b5f;
+  --dark-text-colour-1: rgb(247, 247, 247);
+  --dark-text-colour-2: #c1c0ca;
+  --dark-main-bg-colour-1: #2d373a;
+  --dark-main-bg-colour-2: #1b2224;
+  --dark-hover-bg-colour: #8ab3b8;
+  --dark-hover-text-colour: #1b2224;
+  --dark-border-colour: #1b2224;
   --dark-webkit-box-shadow-colour: rgba(0,0,0,0.85);
   --dark-box-shadow-colour: rgba(26, 27, 31, 0.85);
 }

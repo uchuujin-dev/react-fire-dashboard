@@ -47,17 +47,22 @@
         padding-right: 10px;
         cursor: pointer;
         color: var(--light-text-colour-2);
-        
-        &:hover{
-          background-color: var(--light-hover-bg-colour);
-          color: var(--light-hover-text-colour);
-        }
-
         .icon{
           font-size: 18px;
           color: var( --light-text-colour-2);
           padding-right: 5px;
         }
+
+        &:hover{
+          background-color: var(--light-hover-bg-colour);
+          color: var(--light-hover-text-colour);
+          
+          .icon{
+            color: var(--light-hover-text-colour-1);
+          }
+        }
+
+
       }
     }
   }
@@ -90,11 +95,12 @@
         margin: 5px;
   
         &:nth-child(1){
-          background-color: var(--light-text-colour-1);
-          
+          background-color: var(--dark-main-bg-colour-1);
+          border: 1px solid var(--dark-hover-bg-colour);
         }
         &:nth-child(2){
           background-color: var(--light-main-bg-colour-1);
+          border: 1px solid var(--light-hover-bg-colour);
         }
       }
     }
@@ -111,17 +117,20 @@
         padding: 5px;
         cursor: pointer;
         color: var(--light-text-colour-2);
-
-        
-        &:hover{
-          background-color: var(--light-hover-bg-colour);
-          color: var(--light-hover-text-colour);
-        }
-
         .icon{
           font-size: 18px;
           color: var(--light-text-colour-2);
         }
+        
+        &:hover{
+          background-color: var(--light-hover-bg-colour);
+          color: var(--light-hover-text-colour);
+          .icon{
+            color: var(--light-hover-text-colour-1);
+          }
+        }
+
+
       }
     }
   }

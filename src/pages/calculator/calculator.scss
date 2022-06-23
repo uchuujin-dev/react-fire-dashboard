@@ -35,10 +35,13 @@
           color: var(--light-text-colour-1);
 
           .inputDecor{
-            background-color: var(--light-main-bg-colour-1);
-            border:  var(--light-main-bg-colour-1);
             color: var(--light-text-colour-1);
+            border: solid 0.5px var(--light-hover-bg-colour);
 
+          }
+          .input{
+            color: var(--light-text-colour-1);
+            border: solid 0.5px var(--light-hover-bg-colour);
           }
           .info{
             vertical-align: middle;
@@ -46,6 +49,9 @@
 
           .inputLabel{
             color: var(--light-text-colour-1);
+            .icon{
+              color: var(--light-text-colour-2);
+            }   
           }
        
           .optional{

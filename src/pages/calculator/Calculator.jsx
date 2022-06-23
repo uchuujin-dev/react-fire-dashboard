@@ -11,6 +11,7 @@ import InfoIcon from "../../components/infoIcon/InfoIcon";
 // Translate to graph
 // Add fluctuation to calc
 // Add validation
+// Fix Calculate button
 
 const Calculator = () => {
   const [formData, setFormData] = useState({
@@ -116,7 +117,7 @@ const Calculator = () => {
         <Navbar />
         <div className="mainSection">
           <div className="header">
-            <h1 className="title">Investment calculator</h1>
+            <h1 className="title">INVESTMENT CALCULATOR</h1>
           </div>
           <div className="form">
             {calcForm.map((e) => {
@@ -131,7 +132,10 @@ const Calculator = () => {
                   </Form.Label>
                   <InputGroup className="mb-3">
                     {e.decorStart && (
-                      <InputGroup.Text className="inputDecor">
+                      <InputGroup.Text
+                        style={{ background: "transparent" }}
+                        className="inputDecor"
+                      >
                         {e.decorStart}
                       </InputGroup.Text>
                     )}
@@ -142,9 +146,16 @@ const Calculator = () => {
                       name={e.name}
                       onChange={handleCalc}
                       value={formData[e.name]}
+                      className="input"
+                      style={{ background: "transparent" }}
                     />
                     {e.decorEnd && (
-                      <InputGroup.Text className="inputDecor">
+                      <InputGroup.Text
+                        style={{
+                          background: "transparent"
+                        }}
+                        className="inputDecor"
+                      >
                         {e.decorEnd}
                       </InputGroup.Text>
                     )}

@@ -8,7 +8,7 @@ const calcForm = [
   },
   {
     name: "withdrawalRate",
-    title: "withdrawal rate",
+    title: "Withdrawal rate",
     optional: false,
     desc:
       "Anticipated withdrawal rate in percentage. Recommended is 2.5% - 4%.",

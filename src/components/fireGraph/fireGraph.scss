@@ -6,7 +6,6 @@
   border-radius: 10px;
   padding: 10px;
   min-height: 50vh;
-  max-height: 80vh;
   min-width: 170px;
   height: 100%;
   flex-wrap: wrap;
@@ -24,8 +23,9 @@
 
     .graph {
       margin-left: 10px;
+      margin-bottom: 10px;
       .grid{
-        stroke: var(--light-main-bg-colour-1);
+        stroke: var(--light-hover-bg-colour);
       }
 
 

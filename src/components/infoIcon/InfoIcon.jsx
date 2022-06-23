@@ -10,7 +10,12 @@ function InfoIcon({ desc }) {
       <OverlayTrigger
         key="info"
         placement="right"
-        overlay={<Tooltip id={`tooltip-info`}>{desc}</Tooltip>}
+        className="overlayTrigger"
+        overlay={
+          <Tooltip className="toolTip" id={`tooltip-info`}>
+            {desc}
+          </Tooltip>
+        }
       >
         <button style={{ border: "none", background: "transparent" }}>
           <HelpRoundedIcon className="icon" />

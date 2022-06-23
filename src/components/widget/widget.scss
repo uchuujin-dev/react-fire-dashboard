@@ -42,6 +42,20 @@
     justify-content: space-between;
     backface-visibility: hidden;
     
+    .inputGroup{
+      .inputText{
+        color: var(--light-text-colour-1);
+        border-color: var(--light-hover-bg-colour);
+      }
+      .widget__input{
+        color: var(--light-text-colour-1);
+        border-color: var(--light-hover-bg-colour);
+  
+        &::placeholder {
+          color: var(--light-hover-bg-colour);
+        }
+      }
+    }
 
     .left, .right{
     padding: 5px;
@@ -74,7 +88,7 @@
 
     .counter{
       font-size: 16px;
-      font-weight: 300;
+      font-weight: 300; 
     }
     .link{
       width: max-content;
@@ -88,6 +102,20 @@
       padding: 5px;
       border-radius: 5px;
       align-self: flex-end;
+    }
+
+    .purple{
+      background-color: rgba(128, 0, 128, 0.2);
+      color: purple;
+    }
+    .green{
+      background-color: rgba(0, 128, 0, 0.2); 
+      color: green;
+    }
+
+    .crimson{
+        color: crimson;
+        background-color: rgba(255, 0, 0, 0.2);  
     }
 
   }

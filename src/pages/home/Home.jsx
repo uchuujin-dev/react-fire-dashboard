@@ -15,54 +15,43 @@ const Home = () => {
       id: "fire",
       position: 1,
       title: "YEARS TO FIRE",
-      text: [{ id: "fire", title: "", content: "?" }],
+      text: [{ id: "fire", title: "", content: "?", contentDecor: "" }],
       link: "Calculate",
-      icon: (
-        <LocalFireDepartmentRoundedIcon
-          className="icon"
-          style={{
-            color: "crimson",
-            backgroundColor: "rgba(255, 0, 0, 0.2)"
-          }}
-        />
-      )
+      icon: <LocalFireDepartmentRoundedIcon className="icon crimson" />
     },
     {
       id: "pots",
       position: 2,
       title: "POTS",
       text: [
-        { id: "emergency", title: "Emergency fund: ", content: "?" },
-        { id: "cash", title: "Other cash: ", content: "?" }
+        {
+          id: "emergency",
+          title: "Emergency fund: ",
+          content: "?",
+          contentDecor: " £ "
+        },
+        { id: "cash", title: "Other cash: ", content: "?", contentDecor: " £ " }
       ],
 
       link: "Click to edit",
-      icon: (
-        <AttachMoneyRoundedIcon
-          className="icon"
-          style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-        />
-      )
+      icon: <AttachMoneyRoundedIcon className="icon green" />
     },
     {
       id: "worth",
       position: 3,
       title: "NET WORTH",
       text: [
-        { id: "assets", title: "Assets: ", content: "?" },
-        { id: "liabilities", title: "Liabilities: ", content: "?" }
+        { id: "assets", title: "Assets: ", content: "?", contentDecor: "£ " },
+        {
+          id: "liabilities",
+          title: "Liabilities: ",
+          content: "?",
+          contentDecor: " £ "
+        }
       ],
       total: "?",
       link: "Click to edit",
-      icon: (
-        <AutoGraphRoundedIcon
-          className="icon"
-          style={{
-            backgroundColor: "rgba(128, 0, 128, 0.2)",
-            color: "purple"
-          }}
-        />
-      )
+      icon: <AutoGraphRoundedIcon className="icon purple" />
     }
   ]);
   function sortByPosition(a, b) {

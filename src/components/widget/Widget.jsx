@@ -44,7 +44,10 @@ const Widget = ({ widget, saveWidgetText }) => {
             return (
               <div>
                 <span className="counter">{text.title}</span>
-                <span className="counter">{text.content}</span>
+                <span className="counter" style={{ display: "block" }}>
+                  {text.contentDecor}
+                  {text.content}
+                </span>
               </div>
             );
           })}
@@ -89,8 +92,13 @@ const Widget = ({ widget, saveWidgetText }) => {
                   {text.title}
                 </label>
 
-                <InputGroup className="mb-3">
-                  <InputGroup.Text>£ </InputGroup.Text>
+                <InputGroup className="mb-3 inputGroup">
+                  <InputGroup.Text
+                    className="inputText"
+                    style={{ background: "transparent" }}
+                  >
+                    £{" "}
+                  </InputGroup.Text>
                   <FormControl
                     className="widget__input"
                     name={text.id}
@@ -99,6 +107,7 @@ const Widget = ({ widget, saveWidgetText }) => {
                     onChange={handleInput}
                     onClick={(e) => e.stopPropagation()}
                     aria-label="Pound amount"
+                    style={{ background: "transparent" }}
                   />
                 </InputGroup>
               </div>
