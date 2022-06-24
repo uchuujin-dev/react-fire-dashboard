@@ -3,6 +3,7 @@ import "./calculator.scss";
 import calcForm from "./calcFormData.js";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import InputSection from "../../components/inputSection/InputSection";
 import CalculateRoundedIcon from "@mui/icons-material/CalculateRounded";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 import InfoIcon from "../../components/infoIcon/InfoIcon";
@@ -10,7 +11,7 @@ import InfoIcon from "../../components/infoIcon/InfoIcon";
 // Need to floor numbers
 // Translate to graph
 // Add fluctuation to calc
-// Add validation
+// Add validation min max values & disable button if validations fail
 // Fix Calculate button
 
 const Calculator = () => {
@@ -122,45 +123,16 @@ const Calculator = () => {
           <div className="form">
             {calcForm.map((e) => {
               return (
-                <article>
-                  <Form.Label className="inputLabel" htmlFor={e.name}>
-                    {e.title}
-                    {e.optional && (
-                      <span className="optional"> (optional)</span>
-                    )}
-                    {e.desc && <InfoIcon className="info" desc={e.desc} />}
-                  </Form.Label>
-                  <InputGroup className="mb-3">
-                    {e.decorStart && (
-                      <InputGroup.Text
-                        style={{ background: "transparent" }}
-                        className="inputDecor"
-                      >
-                        {e.decorStart}
-                      </InputGroup.Text>
-                    )}
-
-                    <FormControl
-                      type="number"
-                      id={e.name}
-                      name={e.name}
-                      onChange={handleCalc}
-                      value={formData[e.name]}
-                      className="input"
-                      style={{ background: "transparent" }}
-                    />
-                    {e.decorEnd && (
-                      <InputGroup.Text
-                        style={{
-                          background: "transparent"
-                        }}
-                        className="inputDecor"
-                      >
-                        {e.decorEnd}
-                      </InputGroup.Text>
-                    )}
-                  </InputGroup>
-                </article>
+                <InputSection
+                  name={e.name}
+                  title={e.title}
+                  optional={e.optional}
+                  desc={e.desc}
+                  decorStart={e.decorStart}
+                  onChange={handleCalc}
+                  formData={formData}
+                  decorEnd={e.decorEnd}
+                />
               );
             })}
 
