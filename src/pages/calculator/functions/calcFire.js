@@ -39,23 +39,24 @@ function calcFire(formData) {
   console.log(growth);
   let total = principle + interest;
   // A = P(1+r/n)(nt)
+  if (fireNum > 0 && fireNum < 10000000) {
+    while (total < fireNum) {
+      for (let j = 1; j <= 12; j++) {
+        total = total + deposit;
+        principle += deposit;
 
-  while (total < fireNum) {
-    for (let j = 1; j <= 12; j++) {
-      total = total + deposit;
-      principle += deposit;
+        interest += total * (growth / 12);
 
-      interest += total * (growth / 12);
+        total = total * (1 + growth / 12);
+      }
 
-      total = total * (1 + growth / 12);
+      fireYear++;
+      console.log(
+        `year ${fireYear} total is ${total}, check total is ${
+          interest + principle
+        }, principle is £${principle}`
+      );
     }
-
-    fireYear++;
-    console.log(
-      `year ${fireYear} total is ${total}, check total is ${
-        interest + principle
-      }, principle is £${principle}`
-    );
   }
 
   console.log(`${fireYear} years to fire with £${total}`);

@@ -43,6 +43,10 @@
             color: var(--light-text-colour-1);
             border: solid 0.5px var(--light-hover-bg-colour);
           }
+          
+          .warning {
+            border: solid 1px red;
+          }
           .info{
             vertical-align: middle;
           }
@@ -77,7 +81,11 @@
             color: var(--light-hover-text-colour);
           }
 
-
+          &:disabled{
+            background-color: lightgrey;
+            color: rgb(136, 135, 135);
+            cursor: not-allowed;
+          }
         }
       }
     }

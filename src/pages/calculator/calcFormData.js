@@ -4,7 +4,9 @@ const calcForm = [
     title: "Annual expenses",
     optional: false,
     desc: "Anticipated spending in retirement.",
-    decorStart: "£"
+    decorStart: "£",
+    min: "1",
+    max: 1000000
   },
   {
     name: "withdrawalRate",
@@ -12,41 +14,53 @@ const calcForm = [
     optional: false,
     desc:
       "Anticipated withdrawal rate in percentage. Recommended is 2.5% - 4%.",
-    decorEnd: "%"
+    decorEnd: "%",
+    min: 1,
+    max: 100
   },
   {
     name: "age",
     title: "Current age",
     optional: false,
-    desc: null
+    desc: null,
+    min: 0,
+    max: 120
   },
   {
     name: "initBalance",
     title: "Initial balance",
     optional: false,
     desc: null,
-    decorStart: "£"
+    decorStart: "£",
+    min: 0,
+    max: 10000000
   },
   {
     name: "returns",
     title: "Annual returns",
     optional: false,
     desc: "Anticipated market returns.",
-    decorEnd: "%"
+    decorEnd: "%",
+    min: -1000,
+    max: 1000
   },
   {
     name: "errorRate",
     title: "Fluctuations in annual returns ",
     optional: true,
     desc: "Anticipated fluctuations in annual return. Default is 50%.",
-    decorEnd: "%"
+    decorEnd: "%",
+    min: 0,
+    max: 200
   },
   {
     name: "deposit",
     title: "Deposit monthly ",
     optional: true,
     desc: "How much you save per month, if any.",
-    decorStart: "£"
+    decorStart: "£",
+    min: 0,
+    max: 1000000
   }
 ];
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import "./inputSection.scss";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 import InfoIcon from "../../components/infoIcon/InfoIcon";
@@ -6,11 +6,33 @@ import InfoIcon from "../../components/infoIcon/InfoIcon";
 const InputSection = (props) => {
   const handleClick = (e) => {
     e.target.select();
+    console.log(e.target);
   };
 
   const preventScroll = (e) => {
     e.target.blur();
   };
+
+  const [validationWarning, setValidationWarning] = useState(false);
+
+  function enforceMinMax(e) {
+    console.log(e.target);
+    console.log("inBlur", e.target.value <= e.target.min);
+    if (e.target.value !== "") {
+      if (
+        parseInt(e.target.value) <= parseInt(e.target.min) ||
+        parseInt(e.target.value) >= parseInt(e.target.max)
+      ) {
+        setValidationWarning(true);
+        // props.setValidationWarning((prev) => {
+        //   return;
+        // });
+        console.log("in true", validationWarning);
+      } else {
+        setValidationWarning(false);
+      }
+    }
+  }
 
   return (
     <article>
@@ -23,7 +45,7 @@ const InputSection = (props) => {
         {props.decorStart && (
           <InputGroup.Text
             style={{ background: "transparent" }}
-            className="inputDecor"
+            className={validationWarning ? "input warning" : "inputDecor"}
           >
             {props.decorStart}
           </InputGroup.Text>
@@ -35,17 +57,21 @@ const InputSection = (props) => {
           name={props.name}
           onChange={props.onChange}
           value={props.formData[props.name]}
-          className="input"
+          className={validationWarning ? "input warning" : "input"}
           style={{ background: "transparent" }}
           onClick={handleClick}
           onWheel={preventScroll}
+          min={props.min}
+          max={props.max}
+          required={!props.optional}
+          onBlur={enforceMinMax}
         />
         {props.decorEnd && (
           <InputGroup.Text
             style={{
               background: "transparent"
             }}
-            className="inputDecor"
+            className={validationWarning ? "input warning" : "inputDecor"}
           >
             {props.decorEnd}
           </InputGroup.Text>

@@ -7,6 +7,9 @@ import InputSection from "../../components/inputSection/InputSection";
 import calcFire from "./functions/calcFire";
 
 const Calculator = () => {
+  const [isValid, setIsValid] = useState(false);
+  const [warning, setWarning] = useState([]);
+
   const [formData, setFormData] = useState({
     annualExp: 0,
     withdrawalRate: 0,
@@ -53,12 +56,19 @@ const Calculator = () => {
                   onChange={handleCalc}
                   formData={formData}
                   decorEnd={e.decorEnd}
+                  min={e.min}
+                  max={e.max}
+                  setIsValid={setIsValid}
+                  setWarning={setWarning}
                 />
               );
             })}
 
-            <button className="calcBtn" onClick={calcFire(formData)}>
-              {/* <CalculateRoundedIcon className="calcBtnIcon" fontSize="large" /> */}
+            <button
+              disabled={isValid ? false : true}
+              className="calcBtn"
+              onClick={() => calcFire(formData)}
+            >
               Calculate
             </button>
           </div>
