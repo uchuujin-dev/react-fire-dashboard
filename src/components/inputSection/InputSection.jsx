@@ -4,18 +4,12 @@ import { Form, FormControl, InputGroup } from "react-bootstrap";
 import InfoIcon from "../../components/infoIcon/InfoIcon";
 
 const InputSection = (props) => {
-  const numberInputRef = useRef(null);
-
-  useEffect(() => {
-    const ignoreScroll = (e) => {
-      e.preventDefault();
-    };
-    numberInputRef.current &&
-      numberInputRef.current.addEventListener("wheel", ignoreScroll);
-  }, [numberInputRef]);
-
   const handleClick = (e) => {
     e.target.select();
+  };
+
+  const preventScroll = (e) => {
+    e.target.blur();
   };
 
   return (
@@ -44,7 +38,7 @@ const InputSection = (props) => {
           className="input"
           style={{ background: "transparent" }}
           onClick={handleClick}
-          ref={numberInputRef}
+          onWheel={preventScroll}
         />
         {props.decorEnd && (
           <InputGroup.Text

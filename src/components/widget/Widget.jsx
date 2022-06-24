@@ -3,6 +3,7 @@ import "./widget.scss";
 import { InputGroup, FormControl } from "react-bootstrap";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Link, useNavigate } from "react-router-dom";
+
 const Widget = ({ widget, saveWidgetText }) => {
   const [toggleFlip, setToggleFlip] = useState(false);
   const [input, setInput] = useState({});
@@ -87,7 +88,7 @@ const Widget = ({ widget, saveWidgetText }) => {
           <span className="title">{widget.title}</span>
           {widget.text.map((text) => {
             return (
-              <div>
+              <article>
                 <label htmlFor={text.title} className="counter">
                   {text.title}
                 </label>
@@ -110,7 +111,7 @@ const Widget = ({ widget, saveWidgetText }) => {
                     style={{ background: "transparent" }}
                   />
                 </InputGroup>
-              </div>
+              </article>
             );
           })}
 
