@@ -13,9 +13,10 @@ import {
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
-const FireGraph = () => {
+const FireGraph = ({ data }) => {
   const { darkMode } = useContext(DarkModeContext);
-  const data = [
+
+  const sampleData = [
     {
       name: 30,
       principle: 20000,
@@ -60,7 +61,7 @@ const FireGraph = () => {
         <AreaChart
           width={500}
           height={400}
-          data={data}
+          data={data ? data : sampleData}
           margin={{
             top: 10,
             right: 30,

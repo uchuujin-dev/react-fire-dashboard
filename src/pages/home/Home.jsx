@@ -8,8 +8,11 @@ import "./home.scss";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
+  console.log(location.state);
   const [widgetText, setWidgetText] = useState([
     {
       id: "fire",
@@ -98,7 +101,7 @@ const Home = () => {
           })}
         </div>
         <div className="charts">
-          <FireGraph />
+          <FireGraph data={location.state} />
         </div>
 
         <div className="markets">

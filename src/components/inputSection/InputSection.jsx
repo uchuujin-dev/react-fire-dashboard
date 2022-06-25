@@ -16,20 +16,27 @@ const InputSection = (props) => {
   const [validationWarning, setValidationWarning] = useState(false);
 
   function enforceMinMax(e) {
-    console.log(e.target);
-    console.log("inBlur", e.target.value <= e.target.min);
+    // console.log(e.target);
+    // console.log("inBlur", e.target.value <= e.target.min);
     if (e.target.value !== "") {
       if (
         parseInt(e.target.value) <= parseInt(e.target.min) ||
         parseInt(e.target.value) >= parseInt(e.target.max)
       ) {
         setValidationWarning(true);
-        // props.setValidationWarning((prev) => {
-        //   return;
-        // });
-        console.log("in true", validationWarning);
+        props.setWarning((prev) => {
+          return {
+            ...prev,
+            [e.target.name]: "Validation error"
+          };
+        });
       } else {
+        console.log(props.warning, "in false");
         setValidationWarning(false);
+        props.setWarning((prev) => {
+          let warningObj = delete prev[e.target.name];
+          return warningObj;
+        });
       }
     }
   }

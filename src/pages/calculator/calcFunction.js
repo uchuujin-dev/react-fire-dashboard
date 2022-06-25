@@ -1,4 +1,4 @@
-function calcFire() {
+function calcFire(formData) {
   let {
     annualExp,
     withdrawalRate,
