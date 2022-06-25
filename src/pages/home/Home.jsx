@@ -10,9 +10,9 @@ import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
 import { useLocation } from "react-router-dom";
 
-const Home = () => {
-  const location = useLocation();
-  console.log(location.state);
+const Home = ({ data }) => {
+  // const location = useLocation();
+  // console.log("home", location.state);
   const [widgetText, setWidgetText] = useState([
     {
       id: "fire",
@@ -101,7 +101,7 @@ const Home = () => {
           })}
         </div>
         <div className="charts">
-          <FireGraph data={location.state} />
+          <FireGraph data={data} />
         </div>
 
         <div className="markets">

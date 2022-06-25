@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./calculator.scss";
 import calcForm from "./calcFormData.js";
@@ -7,7 +7,7 @@ import Navbar from "../../components/navbar/Navbar";
 import InputSection from "../../components/inputSection/InputSection";
 // import calcFire from "./functions/calcFire";
 
-const Calculator = () => {
+const Calculator = ({ setData }) => {
   const navigate = useNavigate();
   // const data = [
   //   {
@@ -47,10 +47,13 @@ const Calculator = () => {
   //   }
   // ];
 
-  const [data, setData] = useState();
-  // const toFireGraph = () => {
-  //   navigate("/", { state: data });
-  // };
+  // const [data, setData] = useState();
+
+  let tempData = [];
+  function toFireGraph() {
+    setData(tempData);
+    navigate("/");
+  }
 
   const [warning, setWarning] = useState();
 
@@ -129,7 +132,8 @@ const Calculator = () => {
     let total = principle + interest;
     // A = P(1+r/n)(nt)
     if (fireNum > 0) {
-      setData([]);
+      // let data = [];
+
       while (total < fireNum) {
         for (let j = 1; j <= 12; j++) {
           total = total + deposit;
@@ -158,10 +162,28 @@ const Calculator = () => {
         // );
 
         console.log({
-          age: age + fireYear,
+          name: age + fireYear,
           principle: principle,
           interest: interest
         });
+
+        tempData.push({
+          name: age + fireYear,
+          principle: principle,
+          interest: interest
+        });
+
+        // setData((prev) => {
+        //   console.log(prev);
+        //   return [
+        //     {
+        //       age: age + fireYear,
+        //       principle: principle,
+        //       interest: interest
+        //     },
+        //     ...prev
+        //   ];
+        // });
 
         // console.log("data", data);
       }
@@ -206,10 +228,10 @@ const Calculator = () => {
               onClick={calcFire}
             >
               <a
-              // href="/"
-              // onClick={() => {
-              //   toFireGraph();
-              // }}
+                // href="/"
+                onClick={() => {
+                  toFireGraph();
+                }}
               >
                 Calculate
               </a>

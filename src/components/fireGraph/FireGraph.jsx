@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import "./fireGraph.scss";
 import abbreviate from "number-abbreviate";
 import {

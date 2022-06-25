@@ -33,10 +33,12 @@ const InputSection = (props) => {
       } else {
         console.log(props.warning, "in false");
         setValidationWarning(false);
-        props.setWarning((prev) => {
-          let warningObj = delete prev[e.target.name];
-          return warningObj;
-        });
+        if (props.warning && props.warning[e.target.name]) {
+          props.setWarning((prev) => {
+            let warningObj = delete prev[e.target.name];
+            return warningObj;
+          });
+        }
       }
     }
   }
