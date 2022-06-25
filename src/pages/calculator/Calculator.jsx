@@ -1,55 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./calculator.scss";
 import calcForm from "./calcFormData.js";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import InputSection from "../../components/inputSection/InputSection";
-// import calcFire from "./functions/calcFire";
 
 const Calculator = ({ setData }) => {
   const navigate = useNavigate();
-  // const data = [
-  //   {
-  //     name: 30,
-  //     principle: 20000,
-  //     interest: 0
-  //   },
-  //   {
-  //     name: 35,
-  //     principle: 95000,
-  //     interest: 15500
-  //   },
-  //   {
-  //     name: 40,
-  //     principle: 170000,
-  //     interest: 55900
-  //   },
-  //   {
-  //     name: 45,
-  //     principle: 245000,
-  //     interest: 128300
-  //   },
-  //   {
-  //     name: 50,
-  //     principle: 320000,
-  //     interest: 241300
-  //   },
-  //   {
-  //     name: 55,
-  //     principle: 395000,
-  //     interest: 406300
-  //   },
-  //   {
-  //     name: 60,
-  //     principle: 470000,
-  //     interest: 637600
-  //   }
-  // ];
-
-  // const [data, setData] = useState();
 
   let tempData = [];
+
   function toFireGraph() {
     setData(tempData);
     navigate("/");
@@ -111,16 +72,6 @@ const Calculator = ({ setData }) => {
       deposit
     ].map(Number);
 
-    // console.log(
-    //   annualExp,
-    //   withdrawalRate,
-    //   age,
-    //   initBalance,
-    //   returns,
-    //   errorRate,
-    //   deposit
-    // );
-
     const fireNum = annualExp * (100 / withdrawalRate);
 
     let fireYear = 0;
@@ -128,12 +79,10 @@ const Calculator = ({ setData }) => {
     let principle = initBalance;
     let interest = 0;
     let growth = returns / 100;
-    // console.log(growth);
+
     let total = principle + interest;
     // A = P(1+r/n)(nt)
     if (fireNum > 0) {
-      // let data = [];
-
       while (total < fireNum) {
         for (let j = 1; j <= 12; j++) {
           total = total + deposit;
@@ -144,52 +93,14 @@ const Calculator = ({ setData }) => {
           total = total * (1 + growth / 12);
         }
         fireYear++;
-        // setData((prev) => {
-        //   console.log(age);
-        //   let newDataObj = {
-        //     age: age + fireYear,
-        //     principle: principle,
-        //     interest: interest
-        //   };
-        //   console.log("setting data", [newDataObj, ...prev]);
-        //   return [newDataObj, ...prev];
-        // });
-
-        // console.log(
-        //   `age ${age + fireYear} total is ${total}, check total is ${
-        //     interest + principle
-        //   }, principle is £${principle}, interest is £${interest}`
-        // );
-
-        console.log({
-          name: age + fireYear,
-          principle: principle,
-          interest: interest
-        });
 
         tempData.push({
           name: age + fireYear,
           principle: principle,
           interest: interest
         });
-
-        // setData((prev) => {
-        //   console.log(prev);
-        //   return [
-        //     {
-        //       age: age + fireYear,
-        //       principle: principle,
-        //       interest: interest
-        //     },
-        //     ...prev
-        //   ];
-        // });
-
-        // console.log("data", data);
       }
     }
-
-    console.log(`${fireYear} years to fire with £${total}`);
   }
 
   return (
@@ -225,16 +136,12 @@ const Calculator = ({ setData }) => {
             <button
               disabled={warning ? true : false}
               className="calcBtn"
-              onClick={calcFire}
+              onClick={() => {
+                calcFire();
+                toFireGraph();
+              }}
             >
-              <a
-                // href="/"
-                onClick={() => {
-                  toFireGraph();
-                }}
-              >
-                Calculate
-              </a>
+              Calculate
             </button>
           </div>
         </div>
