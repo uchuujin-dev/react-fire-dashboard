@@ -1,21 +1,9 @@
 import React from "react";
 import "./fireGraph.scss";
-import abbreviate from "number-abbreviate";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  ReferenceLine
-} from "recharts";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
-const FireGraph = ({ data }) => {
-  console.log("data", data);
+const FireGraphEmpty = () => {
   const { darkMode } = useContext(DarkModeContext);
 
   const sampleData = [
@@ -58,7 +46,7 @@ const FireGraph = ({ data }) => {
 
   return (
     <div className="fireGraph" id="fireGraph">
-      <div className="title">{data ? "Projections" : "Sample projection"}</div>
+      <div className="title">Projections</div>
       <ResponsiveContainer className="graph" width="99%" aspect={2 / 1}>
         <AreaChart
           width={500}

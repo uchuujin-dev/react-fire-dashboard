@@ -17,6 +17,13 @@ color: var(--dark-text-colour-1) ;
   .icon{
     color: var(--dark-text-colour-1);
   }
+  .item{
+    .avatar{
+      border-color: var( --dark-text-colour-1);
+      color: var(--dark-text-colour-2);
+    }
+  }
+
 }
 .sidebar{
   background-color:var(--dark-main-bg-colour-2);

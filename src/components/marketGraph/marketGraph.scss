@@ -62,6 +62,24 @@
         width: 100%;
         background: transparent;
 
+
+        .table{
+          
+          .tableCell{
+            color: var(--light-text-colour-1);
+            background-color: var(--light-main-bg-colour-1);
+          }
+          .cellTitle{
+            color: var(--light-text-colour-2);
+          }
+          .deleteRowBtn{
+            .deleteRowBtnIcon{
+              color: rgb(255, 57, 57);
+              opacity: 0.9;
+            }
+          }
+        }
+
       }
 
       .description {

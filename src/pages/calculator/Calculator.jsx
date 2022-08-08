@@ -11,9 +11,10 @@ const Calculator = ({ setData }) => {
 
   let tempData = [];
   let fireNum;
+  let fireAge;
 
   function toFireGraph() {
-    setData({ graph: tempData, fireNumber: fireNum });
+    setData({ graph: tempData, fireNumber: fireNum, fireAge: fireAge });
     navigate("/");
   }
 
@@ -98,6 +99,7 @@ const Calculator = ({ setData }) => {
         }
         fireYear++;
         ageCounter++;
+        fireAge = ageCounter;
         console.log("fire year, total, fireNum", fireYear, total, fireNum);
 
         console.log("total < fireNum", total < fireNum);

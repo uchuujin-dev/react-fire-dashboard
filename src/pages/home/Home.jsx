@@ -97,7 +97,13 @@ function Home({ data }) {
         <Navbar />
         <div className="widgets">
           {widgetText.map((widget) => {
-            return <Widget widget={widget} saveWidgetText={saveWidgetText} />;
+            return (
+              <Widget
+                widget={widget}
+                saveWidgetText={saveWidgetText}
+                data={data}
+              />
+            );
           })}
         </div>
         <div className="charts">

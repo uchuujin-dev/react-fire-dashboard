@@ -4,7 +4,8 @@ import { InputGroup, FormControl } from "react-bootstrap";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Link, useNavigate } from "react-router-dom";
 
-const Widget = ({ widget, saveWidgetText }) => {
+const Widget = ({ widget, saveWidgetText, data }) => {
+  console.log("widget", data);
   const [toggleFlip, setToggleFlip] = useState(false);
   const [input, setInput] = useState({});
   const [diff, setDiff] = useState();
@@ -47,7 +48,7 @@ const Widget = ({ widget, saveWidgetText }) => {
                 <span className="counter">{text.title}</span>
                 <span className="counter" style={{ display: "block" }}>
                   {text.contentDecor}
-                  {text.content}
+                  {widget.id === "fire" && data ? data.fireAge : text.content}
                 </span>
               </div>
             );

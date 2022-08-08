@@ -7,6 +7,7 @@ import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBullete
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { darkMode, dispatch } = useContext(DarkModeContext);
@@ -35,9 +36,12 @@ const Navbar = () => {
           <div className="item">
             <FormatListBulletedRoundedIcon className="icon" />
           </div>
-          <div className="item">
-            <AccountCircleRoundedIcon className="avatar" />
-          </div>
+
+          <Link to="/profile" style={{ textDecoration: "none" }}>
+            <div className="item">
+              <AccountCircleRoundedIcon className="avatar" />
+            </div>
+          </Link>
         </div>
       </div>
     </div>
