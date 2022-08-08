@@ -27,23 +27,58 @@ const Calculator = ({ setData }) => {
     age: 30,
     initBalance: 10000,
     returns: 8,
-    errorRate: 50,
+    errorRate: 0,
     deposit: 1000
   });
 
   function handleCalc(event) {
     const { name, value } = event.target;
-    console.log(name, value);
+    // console.log(name, value);
     setFormData((prev) => {
-      console.log({
-        ...prev,
-        [name]: value
-      });
+      // console.log({
+      //   ...prev,
+      //   [name]: value
+      // });
       return {
         ...prev,
         [name]: value
       };
     });
+  }
+  // function fluctuateGrowthContinuous(growth, fluctuation) {
+  //   const min = growth - growth * (fluctuation / 100);
+  //   const max = growth + growth * (fluctuation / 100);
+
+  //   console.log("start: ", min, " end: ", max);
+  //   if (min === max) {
+  //     return growth;
+  //   } else {
+  //     const returns = parseFloat(
+  //       (Math.random() * (max - min) + min).toFixed(3)
+  //     );
+  //     console.log(returns);
+  //     return returns;
+  //   }
+  // }
+
+  function fluctuateGrowthNormal(growth, fluctuation, skew = 1) {
+    const min = growth - growth * (fluctuation / 100);
+    const max = growth + growth * (fluctuation / 100);
+    let u = 0,
+      v = 0;
+    while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
+    while (v === 0) v = Math.random();
+    let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+
+    num = num / 10.0 + 0.5; // Translate to 0 -> 1
+    if (num > 1 || num < 0) num = fluctuateGrowthNormal(min, max, skew);
+    // resample between 0 and 1 if out of range
+    else {
+      num = Math.pow(num, skew); // Skew
+      num *= max - min; // Stretch to fill range
+      num += min; // offset to min
+    }
+    return num.toFixed(3);
   }
 
   function calcFire() {
@@ -89,20 +124,18 @@ const Calculator = ({ setData }) => {
     // A = P(1+r/n)(nt)
     if (fireNum > 0) {
       while (total < fireNum) {
+        let growthWithErrorRate = fluctuateGrowthNormal(growth, errorRate);
+
         for (let j = 1; j <= 12; j++) {
           total = total + deposit;
           principle += deposit;
-
-          interest += total * (growth / 12);
-
-          total = total * (1 + growth / 12);
+          interest += total * (growthWithErrorRate / 12);
+          total = total * (1 + growthWithErrorRate / 12);
         }
         fireYear++;
         ageCounter++;
         fireAge = ageCounter;
-        console.log("fire year, total, fireNum", fireYear, total, fireNum);
 
-        console.log("total < fireNum", total < fireNum);
         tempData.push({
           name: age + fireYear,
           principle: principle,
@@ -114,16 +147,6 @@ const Calculator = ({ setData }) => {
       }
     }
   }
-
-  // useEffect(() => {
-  //   if (warning && Object.keys(warning).length !== 0) {
-  //     console.log("warning exists: ", warning);
-  //     setIsDisabled(true);
-  //   } else {
-  //     console.log("warning doesn't exist, returning isDisabled = false");
-  //     setIsDisabled(false);
-  //   }
-  // }, [warning]);
 
   return (
     <div className="calculator">

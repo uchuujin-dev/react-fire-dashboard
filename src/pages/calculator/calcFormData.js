@@ -48,7 +48,7 @@ const calcForm = [
     name: "errorRate",
     title: "Fluctuations in annual returns ",
     optional: true,
-    desc: "Anticipated fluctuations in annual return. Default is 50%.",
+    desc: "Anticipated fluctuations in annual return. Default is 0%.",
     decorEnd: "%",
     min: 0,
     max: 200

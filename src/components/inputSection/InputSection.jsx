@@ -6,7 +6,7 @@ import InfoIcon from "../../components/infoIcon/InfoIcon";
 const InputSection = (props) => {
   const handleClick = (e) => {
     e.target.select();
-    console.log(e.target);
+    // console.log(e.target);
   };
 
   const preventScroll = (e) => {
@@ -44,7 +44,7 @@ const InputSection = (props) => {
         }
         setTimeout(() => {
           if (Object.keys(props.warning).length === 0) {
-            console.log("keys are none");
+            // console.log("keys are none");
             props.setIsDisabled(false);
           }
         }, 100);

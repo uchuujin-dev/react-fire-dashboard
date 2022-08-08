@@ -5,7 +5,6 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Link, useNavigate } from "react-router-dom";
 
 const Widget = ({ widget, saveWidgetText, data }) => {
-  console.log("widget", data);
   const [toggleFlip, setToggleFlip] = useState(false);
   const [input, setInput] = useState({});
   const [diff, setDiff] = useState();

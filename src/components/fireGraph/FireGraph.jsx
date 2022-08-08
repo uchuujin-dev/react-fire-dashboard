@@ -15,7 +15,6 @@ import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
 const FireGraph = ({ data }) => {
-  console.log("data", data);
   const { darkMode } = useContext(DarkModeContext);
 
   const sampleData = [
@@ -90,6 +89,7 @@ const FireGraph = ({ data }) => {
           />
           {data ? (
             <ReferenceLine
+              stroke={darkMode ? "#e3e4e6" : "#2e3642"}
               y={data.fireNumber}
               label={`Fire at ${data.fireNumber} age ${data.fireAge}`}
               stroke="red"
