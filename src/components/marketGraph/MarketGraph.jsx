@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./marketGraph.scss";
 import CustomTable from "../table/CustomTable";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
-import { CircularProgressbar } from "react-circular-progressbar";
+
 import "react-circular-progressbar/dist/styles.css";
-import { Tab } from "@mui/material";
 
 const MarketGraph = () => {
-  const [toggleFlip, setToggleFlip] = useState(false);
-
-  function flipCard() {
-    const currentState = toggleFlip;
-    setToggleFlip(!currentState);
-  }
-
   return (
     <div className="marketGraph">
       <div className="top">

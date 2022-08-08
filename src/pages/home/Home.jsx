@@ -8,11 +8,8 @@ import "./home.scss";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
-import { useLocation } from "react-router-dom";
 
 function Home({ data }) {
-  // const location = useLocation();
-  // console.log("home", location.state);
   const [widgetText, setWidgetText] = useState([
     {
       id: "fire",
