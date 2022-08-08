@@ -16,14 +16,13 @@ const InputSection = (props) => {
   const [validationWarning, setValidationWarning] = useState(false);
 
   function enforceMinMax(e) {
-    // console.log(e.target);
-    // console.log("inBlur", e.target.value <= e.target.min);
     if (e.target.value !== "") {
       if (
-        parseInt(e.target.value) <= parseInt(e.target.min) ||
-        parseInt(e.target.value) >= parseInt(e.target.max)
+        parseInt(e.target.value) < parseInt(e.target.min) ||
+        parseInt(e.target.value) > parseInt(e.target.max)
       ) {
         setValidationWarning(true);
+        props.setIsDisabled(true);
         props.setWarning((prev) => {
           return {
             ...prev,
@@ -31,14 +30,24 @@ const InputSection = (props) => {
           };
         });
       } else {
-        console.log(props.warning, "in false");
         setValidationWarning(false);
         if (props.warning && props.warning[e.target.name]) {
           props.setWarning((prev) => {
-            let warningObj = delete prev[e.target.name];
-            return warningObj;
+            if (prev) {
+              let warningObj = prev;
+              delete warningObj[e.target.name];
+              return warningObj;
+            } else {
+              return prev;
+            }
           });
         }
+        setTimeout(() => {
+          if (Object.keys(props.warning).length === 0) {
+            console.log("keys are none");
+            props.setIsDisabled(false);
+          }
+        }, 100);
       }
     }
   }
@@ -50,11 +59,11 @@ const InputSection = (props) => {
         {props.optional && <span className="optional"> (optional)</span>}
         {props.desc && <InfoIcon className="info" desc={props.desc} />}
       </Form.Label>
-      <InputGroup className="mb-3">
+      <InputGroup>
         {props.decorStart && (
           <InputGroup.Text
             style={{ background: "transparent" }}
-            className={validationWarning ? "input warning" : "inputDecor"}
+            className={validationWarning ? "inputDecor warning" : "inputDecor"}
           >
             {props.decorStart}
           </InputGroup.Text>
@@ -80,12 +89,20 @@ const InputSection = (props) => {
             style={{
               background: "transparent"
             }}
-            className={validationWarning ? "input warning" : "inputDecor"}
+            className={validationWarning ? "inputDecor warning" : "inputDecor"}
           >
             {props.decorEnd}
           </InputGroup.Text>
         )}
       </InputGroup>
+      {validationWarning ? (
+        <p className="warningMsg">
+          &nbsp; &nbsp;{" "}
+          {`Please enter a number between ${props.min} and ${props.max} `}{" "}
+        </p>
+      ) : (
+        <p className="warningMsg"> &nbsp; </p>
+      )}
     </article>
   );
 };

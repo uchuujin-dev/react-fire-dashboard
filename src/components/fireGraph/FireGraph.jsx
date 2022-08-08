@@ -8,12 +8,14 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
+  ReferenceLine
 } from "recharts";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
 const FireGraph = ({ data }) => {
+  console.log("data", data);
   const { darkMode } = useContext(DarkModeContext);
 
   const sampleData = [
@@ -61,7 +63,7 @@ const FireGraph = ({ data }) => {
         <AreaChart
           width={500}
           height={400}
-          data={data ? data : sampleData}
+          data={data ? data.graph : sampleData}
           margin={{
             top: 10,
             right: 30,
@@ -86,6 +88,13 @@ const FireGraph = ({ data }) => {
           <Tooltip
             formatter={(value) => new Intl.NumberFormat("en").format(value)}
           />
+          {data ? (
+            <ReferenceLine
+              y={data.fireNumber}
+              label={`Fire at ${data.fireNumber} age `}
+              stroke="red"
+            />
+          ) : null}
           <Area
             type="monotone"
             dataKey="principle"

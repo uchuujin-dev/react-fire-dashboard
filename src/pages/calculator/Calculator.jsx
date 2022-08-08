@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./calculator.scss";
 import calcForm from "./calcFormData.js";
@@ -10,13 +10,15 @@ const Calculator = ({ setData }) => {
   const navigate = useNavigate();
 
   let tempData = [];
+  let fireNum;
 
   function toFireGraph() {
-    setData(tempData);
+    setData({ graph: tempData, fireNumber: fireNum });
     navigate("/");
   }
 
-  const [warning, setWarning] = useState();
+  const [warning, setWarning] = useState({});
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const [formData, setFormData] = useState({
     annualExp: 30000,
@@ -72,13 +74,15 @@ const Calculator = ({ setData }) => {
       deposit
     ].map(Number);
 
-    const fireNum = annualExp * (100 / withdrawalRate);
+    fireNum = annualExp * (100 / withdrawalRate);
 
     let fireYear = 0;
 
     let principle = initBalance;
     let interest = 0;
     let growth = returns / 100;
+    let maxAge = 120;
+    let ageCounter = age;
 
     let total = principle + interest;
     // A = P(1+r/n)(nt)
@@ -93,15 +97,31 @@ const Calculator = ({ setData }) => {
           total = total * (1 + growth / 12);
         }
         fireYear++;
+        ageCounter++;
+        console.log("fire year, total, fireNum", fireYear, total, fireNum);
 
+        console.log("total < fireNum", total < fireNum);
         tempData.push({
           name: age + fireYear,
           principle: principle,
           interest: interest
         });
       }
+      if (ageCounter === maxAge && total < fireNum) {
+        console.log("No fire for you.");
+      }
     }
   }
+
+  // useEffect(() => {
+  //   if (warning && Object.keys(warning).length !== 0) {
+  //     console.log("warning exists: ", warning);
+  //     setIsDisabled(true);
+  //   } else {
+  //     console.log("warning doesn't exist, returning isDisabled = false");
+  //     setIsDisabled(false);
+  //   }
+  // }, [warning]);
 
   return (
     <div className="calculator">
@@ -126,15 +146,15 @@ const Calculator = ({ setData }) => {
                   decorEnd={e.decorEnd}
                   min={e.min}
                   max={e.max}
-                  // setIsValid={setIsValid}
                   setWarning={setWarning}
+                  setIsDisabled={setIsDisabled}
                   warning={warning}
                 />
               );
             })}
 
             <button
-              disabled={warning ? true : false}
+              disabled={isDisabled}
               className="calcBtn"
               onClick={() => {
                 calcFire();

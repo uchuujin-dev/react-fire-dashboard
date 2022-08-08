@@ -34,33 +34,7 @@
           margin:20xpx;
           color: var(--light-text-colour-1);
 
-          .inputDecor{
-            color: var(--light-text-colour-1);
-            border: solid 0.5px var(--light-hover-bg-colour);
-
-          }
-          .input{
-            color: var(--light-text-colour-1);
-            border: solid 0.5px var(--light-hover-bg-colour);
-          }
-          
-          .warning {
-            border: solid 1px red;
-          }
-          .info{
-            vertical-align: middle;
-          }
-
-          .inputLabel{
-            color: var(--light-text-colour-1);
-            .icon{
-              color: var(--light-text-colour-2);
-            }   
-          }
-       
-          .optional{
-            font-size: 10px;
-          }
+        
         
         .calcBtn{
           padding: 10px;

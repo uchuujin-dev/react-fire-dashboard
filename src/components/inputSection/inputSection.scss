@@ -1,0 +1,45 @@
+
+.input-group{
+
+  .inputDecor{
+    color: var(--light-text-colour-1);
+    border: solid 0.5px var(--light-hover-bg-colour);
+  
+  }
+  .input{
+    color: var(--light-text-colour-1);
+    border: solid 0.5px var(--light-hover-bg-colour);
+    // margin-bottom: 5px;
+    // margin-top: 0;
+  }
+  
+  .warning {
+    border: solid 1px red;
+  }
+}
+
+
+
+.info{
+  vertical-align: middle;
+}
+
+.warningMsg{
+  color: red;
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+}
+
+.inputLabel{
+  color: var(--light-text-colour-1);
+  margin-top: 20px;
+  margin-bottom: 0;
+  .icon{
+    color: var(--light-text-colour-2);
+  }   
+}
+
+.optional{
+  font-size: 10px;
+}
