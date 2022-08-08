@@ -89,9 +89,11 @@ const FireGraph = ({ data }) => {
           />
           {data ? (
             <ReferenceLine
-              stroke={darkMode ? "#e3e4e6" : "#2e3642"}
               y={data.fireNumber}
-              label={`Fire at ${data.fireNumber} age ${data.fireAge}`}
+              label={{
+                value: `Fire at ${data.fireNumber} age ${data.fireAge}`,
+                fill: darkMode ? "#e3e4e6" : "#2e3642"
+              }}
               stroke="red"
             />
           ) : null}
