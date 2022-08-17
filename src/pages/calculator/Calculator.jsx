@@ -110,7 +110,7 @@ const Calculator = ({ setData }) => {
       deposit
     ].map(Number);
 
-    fireNum = annualExp * (100 / withdrawalRate);
+    fireNum = (annualExp * (100 / withdrawalRate)).toFixed(0);
 
     let fireYear = 0;
 
